@@ -1,2 +1,2 @@
-#!/bin/bash
+#!/bin/bash 
 ls -lRa | find -not -name "." -type  d | wc -l
