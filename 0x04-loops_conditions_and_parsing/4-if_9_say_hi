@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# While loop to print string
+i=0
+while [ $i -le 9 ]
+do
+  echo "Holberton School"
+  ((i++))
+  if [[ "$i" == '9' ]]; then
+    echo "Hi"
+  fi
+done
