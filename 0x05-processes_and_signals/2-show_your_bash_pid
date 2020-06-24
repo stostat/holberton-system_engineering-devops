@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Shows PLD
+ps -u root ufa | grep bash

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Shows PLD
+pkill -f ./4-to_infinity_and_beyond
