@@ -1,5 +1,5 @@
 
-    <h2>Resources</h2>
+<h2>Resources</h2>
 
 <p><strong>Read or watch</strong>:</p>
 
