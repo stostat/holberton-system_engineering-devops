@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#script top connect trhough ssh
+ssh ubuntu@35.237.10.103
