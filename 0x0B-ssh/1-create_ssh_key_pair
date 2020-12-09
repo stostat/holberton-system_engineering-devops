@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 #creates a hey pair with custom name and bits
-ssh-keygen -f holberton -b 4096 -t rsa -p
-betty
+ssh-keygen -t rsa -b 4096 -f holberton -P betty
