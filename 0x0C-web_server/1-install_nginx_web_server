@@ -4,4 +4,4 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 echo "Holberton School for the win!" | tee /var/www/html/index.html
-sudo /etc/init.d/nginx start
+service nginx restart
