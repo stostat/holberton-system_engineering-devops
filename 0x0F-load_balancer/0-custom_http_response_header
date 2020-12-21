@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Installs nginx on server
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Holberton School" | tee /var/www/html/index.html
+sudo sed -i "/# SSL configuration/ i rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/page_not_found.html
+sudo sed -i "/# SSL configuration/ i error_page 404 /page_not_found.html;" /etc/nginx/sites-available/default
+sudo sed -i "/# as directory, then fall back to displaying a 404./ a add_header X-Served-By: 1494-web-02;" /etc/nginx/sites-available/default
+service nginx restart
