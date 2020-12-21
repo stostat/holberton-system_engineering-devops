@@ -5,7 +5,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo apt-get install --no-install-recommends software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-2.0
-sudo apt-get install haproxy=2.0.\*
+sudo apt-get install haproxy
 echo "Holberton School" | sudo tee /var/www/html/index.html
 sudo sed -i "/# SSL configuration/ i rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/page_not_found.html
