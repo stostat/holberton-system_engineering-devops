@@ -29,5 +29,5 @@ file_line{ 'custom-http-header':
   ensure => 'present',
   path   => '/etc/nginx/sites-enabled/default',
   after  => 'try_files $uri $uri/ =404;',
-  line   => 'add_header X-Served-By "$HOSTNAME";'
+  line   => "add_header X-Served-By ${HOSTNAME};",
 }
