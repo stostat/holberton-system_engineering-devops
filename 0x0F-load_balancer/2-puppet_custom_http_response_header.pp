@@ -1,4 +1,8 @@
 #All instalations with puppet
+exec {'server-conf':
+  command  => 'sudo apt-get update';
+
+}
 package { 'nginx':
   ensure => installed,
   name   => 'nginx', # Double check
@@ -19,7 +23,7 @@ file_line{ 'custom-http-header':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
   after  => '# as directory, then fall back to displaying a 404.',
-  line   => 'add_header X-Served-By 1494-web-02;'
+  line   => 'add_header X-Served-By "$HOSTNAME";'
 }
 service { 'nginx':
   ensure  => running,
