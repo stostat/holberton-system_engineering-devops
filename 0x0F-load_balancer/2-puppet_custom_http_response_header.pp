@@ -22,7 +22,7 @@ file_line { 'sites-default':
 file_line{ 'custom-http-header':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default server;',
+  after  => '# as directory, then fall back to displaying a 404.',
   line   => 'add_header X-Served-By "$HOSTNAME";'
 }
 service { 'nginx':
