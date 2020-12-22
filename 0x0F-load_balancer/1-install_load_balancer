@@ -6,7 +6,7 @@ sudo ufw allow 'Nginx HTTP'
 sudo apt-get install --no-install-recommends software-properties-common
 sudo add-apt-repository ppa:vbernat/haproxy-2.0
 sudo apt-get install haproxy
-sudo echo "
+echo "
 frontend localnodes
     bind *:80
     mode http
@@ -17,5 +17,4 @@ backend nodes
     balance roundrobin
     server 1494-web-01 35.237.10.103:80 check
     server 1494-web-02 34.74.152.119:80 check " >> /etc/haproxy/haproxy.cfg
-sudo service nginx restart
 sudo service haproxy restart
