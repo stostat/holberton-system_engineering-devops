@@ -19,7 +19,7 @@ file_line{ 'custom-http-header':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
   after  => '# as directory, then fall back to displaying a 404.',
-  line   => 'add_header X-Served-By;'
+  line   => 'add_header X-Served-By 1494-web-02;'
 }
 service { 'nginx':
   ensure  => running,
