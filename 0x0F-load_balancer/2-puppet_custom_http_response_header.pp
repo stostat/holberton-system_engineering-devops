@@ -1,33 +1,17 @@
-#All instalations with puppet
-exec {'server-conf':
-  command  => 'sudo apt-get update';
-
-}
-package { 'nginx':
+#Configure custom Nginx HTTP header
+exec { '/usr/bin/env apt-get -y update' : }
+-> package { 'nginx':
   ensure => installed,
-  name   => 'nginx',
 }
-
-service { 'nginx':
-  ensure  => running,
-  require => Package['nginx'],
-  enable  => True,
+-> file { '/var/www/html/index.html' :
+  content => 'Holberton School!',
 }
-
-file { '/var/www/html/index.html':
-  content => 'Holberton School',
-}
-
-file_line { 'sites-default':
-  ensure => 'present',
+-> file_line { 'add header' :
+  ensure => present,
   path   => '/etc/nginx/sites-available/default',
-  after  => 'root /var/www/html;',
-  line   => '	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
+  line   => "\tadd_header X-Served-By ${hostname};",
+  after  => 'server_name _;',
 }
-
-file_line{ 'custom-http-header':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-enabled/default',
-  after  => 'try_files $uri $uri/ =404;',
-  line   => "add_header X-Served-By ${HOSTNAME};",
+-> service { 'nginx':
+  ensure => running,
 }
