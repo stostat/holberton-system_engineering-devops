@@ -40,14 +40,14 @@ frontend web
         mode http
         default_backend webapp
 frontend web_https
-	bind *:443 ssl crt /etc/haproxy/roaddev.tech/roaddev.tech.pem
+	bind *:443 ssl crt /etc/haproxy/santimen.tech/santimen.tech.pem
 	reqadd X-Forwarded-Proto:\ https
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
-       default_backend webapp
-backend webapp
+        default_backend webservers
+backend webservers
         balance roundrobin
-	redirect scheme https if !{ ssl_fc }
+	    redirect scheme https if !{ ssl_fc }
         server 1494-web-01 35.237.10.103:80 check
         server 1494-web-02 34.74.152.119:80 check
 
