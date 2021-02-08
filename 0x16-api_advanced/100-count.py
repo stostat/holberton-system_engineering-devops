@@ -6,7 +6,7 @@ after = ""
 
 
 def count_words(subreddit, word_list):
-    """Print the count of words fro, all hot post titles."""
+    """Print the count of words"""
     hot_list = recurse(subreddit)
     word_dict = {}
 
